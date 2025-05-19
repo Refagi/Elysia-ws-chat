@@ -1,0 +1,527 @@
+:root {
+  --base-color: #ebecee;
+  --base-variant: white;
+  --text-color: #0d1b2a;
+  --secondary-text: white;
+  --primary-color: #415a77;
+  --accent-color: #ccc;
+  --property-color: #0d1b2a;
+  --prperty-color-two: #778da9;
+  --button-hover: #778da9;
+}
+
+.darkmode {
+  --base-color: #0d1b2a;
+  --base-variant: #1b263b;
+  --text-color: #f8f9fa;
+  --secondary-text: #0d1b2a;
+  --primary-color: #0d1b2a;
+  --accent-color: #e0e1dd;
+  --property-color: #778da9;
+  --prperty-color-two: #415a77;
+  --button-hover: #0d1b2a;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  background: var(--prperty-color-two);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Bagian Chat List (Kiri) */
+.chat-list {
+  width: 30%;
+  background-color: var(--base-variant);
+  border-right: 1px solid #3b4a54;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--base-variant);
+}
+
+.chat-icon {
+  display: flex;
+  align-items: center;
+}
+
+.chat-icon i {
+  font-size: 20px;
+  margin-right: 5px;
+  color: var(--text-color);
+}
+
+.chat-icon span {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-top: 5px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-theme {
+  z-index: 1000;
+  padding-right: 10px;
+}
+
+#theme-switch {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+
+#theme-switch svg:first-child {fill: var(--text-color);}
+#theme-switch svg:last-child {fill: #f8f9fa;}
+#theme-switch svg:last-child {display: none;}
+.darkmode #theme-switch {background-color: #1b263b;}
+.darkmode #theme-switch svg:first-child {display: none;}
+.darkmode #theme-switch svg:last-child {display: block;}
+
+.icons i {
+  font-size: 20px;
+  margin-right: 5px;
+  color: var(--text-color);
+  padding-right: 10px;
+  cursor: pointer;
+}
+#logout-button {
+  background-color: var(--base-variant);
+  color: var(--text-color);
+  padding: 0px;
+  cursor: pointer;
+}
+
+.search-bar {padding: 10px;}
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--property-color);
+  outline: none;
+  color: #f8f9fa;
+}
+.search-bar input::placeholder {
+  color: #f8f9fa;
+}
+
+.tabs {
+  display: flex;
+  margin-top: 10px;
+  gap: 5px;
+}
+.tabs button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--property-color);
+  color: #fff;
+  cursor: pointer;
+}
+.tabs .active {background-color: var(--primary-color);}
+.chat-items {flex: 1;overflow-y: auto;}
+.chat-item {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #3b4a54;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.chat-item:hover {background-color: var(--button-hover);}
+.chat-item.active {background-color: var(--primary-color);}
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.chat-info { flex: 1;}
+.chat-name {font-weight: bold;}
+.chat-preview {
+  color: var(--text-color);
+  font-size: 14px;
+}
+.chat-meta {text-align: right;}
+.time {font-size: 12px; color: var(--text-color);}
+
+
+.unread-count {
+  background-color: var(--property-color);
+  color: #f8f9fa;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-top: 5px;
+  display: inline-block;
+}
+#alert-user {display: flex; align-items: center; justify-content: center;}
+
+
+/* Bagian Chat Room (Kanan) */
+.chat-room {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-color);
+  flex-direction: column;
+}
+
+.chat-room-content, .edit-profile-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-room-header, .edit-profile-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--property-color);
+  border-bottom: 1px solid #3b4a54;
+}
+
+.chat-room-header h2, .edit-profile-header h2 {
+  font-size: 18px;
+  color: #f8f9fa;
+}
+.chat-status {color: #f8f9fa;}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: auto;
+  margin-right: 2px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: var(--base-color);
+  position: relative;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  line-height: 1.5;
+  animation: fadeInUp 0.3s ease-in-out;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  /* position: relative;
+  z-index: 1; */
+}
+.message.sent {
+  align-self: flex-end;
+  background-color: var(--property-color);
+  color: white;
+  position: relative;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: var(--prperty-color-two);
+  color: white;
+}
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.message.fade-out {
+  animation: fadeOutDown 0.3s ease-in-out forwards;
+}
+.delete-message-btn {
+  display: flex; /* Sembunyikan secara default */
+  position: absolute;
+  top: -5px; /* Sesuai dengan #remove-preview */
+  right: -5px; /* Sesuai dengan #remove-preview */
+  width: 15px;
+  height: 15px;
+  background-color: var(--property-color);
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 5px; */
+  /* margin: 10px; */
+  z-index: 1;
+  transition: opacity 0.3s ease; 
+}
+.delete-message-btn:hover {
+  fill: #cc0000
+}
+
+.delete-message-btn .fa-trash {
+  font-size: 12px;
+  color: white;
+}
+
+.message.received >.message-text {
+  margin-top: 3px;
+}
+.message.sent > .message-text {
+  margin-top: 10px;
+}
+
+.message-image {
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  height: auto; 
+  border-radius: 5px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+
+
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* padding: 1rem; Mirip dengan p-4 di React Bootstrap */
+}
+.preview-wrapper { background: transparent;}
+#image-preview {
+  display: none;
+  background: transparent;
+}
+.preview-image-container {
+  position: relative;
+  display: inline-block;
+}
+#preview-image {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: 1px solid #3b4a54; /* Mirip border-zinc-700 */
+  object-fit: cover; /* Mirip object-cover */
+}
+#remove-preview {
+  position: absolute;
+  top: -8px; /* Sesuai dengan -top-1.5 di React Bootstrap */
+  right: -8px; /* Sesuai dengan -right-1.5 */
+  width: 20px;
+  height: 20px;
+  background-color: var(--base-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+#remove-preview svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--text-color);
+}
+.chat-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.chat-input-bottom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--property-color);
+  border-top: 1px solid #3b4a54;
+  /* border-radius: 8px; */
+  /* gap: 8px; */
+}
+#message-input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  outline: none;
+}
+#send-message {
+  display: none;
+  background-color: var(--property-color);
+  color: #f8f9fa;
+  border: none;
+  padding: 8px;
+  border-radius: 50%; /* Mirip btn-circle */
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+#send-message.visible {
+  display: inline-flex;
+  align-items: center;
+}
+.send-pic-btn {
+  cursor: pointer;
+  display: inline-block;
+  color: #f8f9fa; /* Mirip text-zinc-400 */
+  margin-right: 5px;
+}
+.send-pic-btn svg {
+  fill: #f8f9fa;
+  transition: fill 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+
+/* bagian  sebelum chat-room */
+.ad-content {text-align: center; opacity: 0.5;}
+#icon-rigt-chat {
+  font-size: 200px;
+  margin-bottom: 20px;
+}
+
+
+
+.edit-profile-header{padding: 20px; margin-bottom: 20px;}
+.edit-profile-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--base-color);
+  flex: 1;
+}
+
+.profile-pic-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.profile-pic-section-button {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile-pic-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--property-color);
+}
+
+.change-pic-btn, .delete-profile {
+  padding: 8px;
+  background-color: var(--property-color);
+  color: #f8f9fa;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--base-variant);
+  color: var(--text-color);
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+.save-btn {
+  background-color: var(--property-color);
+  color: #f8f9fa;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: var(--button-hover);
+}

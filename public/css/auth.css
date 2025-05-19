@@ -1,0 +1,219 @@
+:root {
+  --base-color: #f8f9fa;
+  --base-variant: white;
+  --text-color: #0d1b2a;
+  --secondary-text: white;
+  /* --primary-color: #001233; */
+  --accent-color: #ccc;
+  --property-color: #0d1b2a;
+  --button-hover: #778da9;
+  /* --border-color: #e5e5e5; */
+}
+.darkmode {
+  --base-color: #0d1b2a;
+  --base-variant: #1b263b;
+  --text-color: #f8f9fa;
+  --secondary-text: #0d1b2a;
+  --accent-color: #e0e1dd;
+  --property-color: #778da9;
+  --button-hover: #0d1b2a;
+}
+
+
+*, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--text-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-theme {
+  position: fixed;
+  top: 10px; /* Jarak dari atas */
+  right: 10px; /* Jarak dari kanan */
+  z-index: 1000; /* Pastikan elemen berada di atas elemen lain */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-theme h3 {margin-right: 5px;}
+
+#theme-switch {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+#theme-switch svg:first-child {fill: #0d1b2a;}
+#theme-switch svg:last-child {fill: #f8f9fa;}
+#theme-switch svg:last-child {display: none;}
+.darkmode #theme-switch {background-color: #0d1b2a;}
+.darkmode #theme-switch svg:first-child {display: none;}
+.darkmode #theme-switch svg:last-child {display: block;}
+
+
+.container-auth {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: var(--base-variant);
+  box-shadow: 0 4px 10px rgba(136, 136, 136, 0.1);
+  background-color: var(--base-variant);
+}
+
+.header-login, .header-regist, .header-sendVerif {text-align: center; margin-bottom: 20px;}
+.header-login h2, .header-regist h2, .header-sendVerif h2 {margin-bottom: 10px;}
+.form-email, .form-password, .form-username {margin-bottom: 15px;}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-item-password-login, .form-item-password-regist {position: relative;}
+.form-item-password-login i, .form-item-password-regist i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #0d1b2a;
+}
+
+.login-btn, .regist-btn, .sendVerif-btn {text-align: center; margin: 20px 0 20px 0;}
+.login-btn button {
+  border-radius: 5px;
+  padding: 10px ;
+  min-width: 400px;
+  background-color: var(--property-color);
+  border: none;
+  cursor: pointer;
+  color: #f8f9fa;
+}
+.login-btn button:hover {background-color: var(--button-hover);}
+
+.regist-btn button {
+  border-radius: 5px;
+  padding: 10px ;
+  min-width: 400px;
+  background-color: var(--property-color);
+  border: none;
+  cursor: pointer;
+  color: #f8f9fa;
+}
+.regist-btn button:hover {background-color: var(--button-hover);}
+
+
+.sendVerif-btn button {
+  border-radius: 5px;
+  padding: 10px 100px 10px 100px;
+  background-color: var(--property-color);
+  border: none;
+  cursor: pointer;
+  color: #f8f9fa;
+}
+.sendVerif-btn button:hover {background-color: var(--button-hover);}
+
+
+.element-login-rg, .element-regist-rg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.element-login-rg button {
+  border: none;
+  background-color: var(--base-variant);
+  font-weight: 600;
+  cursor: pointer;
+  color: #2192FF;
+}
+
+.element-regist-rg button {
+  border: none;
+  background-color: var(--base-variant);
+  font-weight: 600;
+  cursor: pointer;
+  color: #2192FF;
+}
+
+.element-sendVerif-rg  { display: flex; justify-content: space-around;}
+.element-sendVerif-rg button {
+  background-color: var(--secondary-text);
+  cursor: pointer;
+  color: var(--text-color);
+  border: none;
+}
+
+.check-email-ui {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.logo-email i {
+  font-size: 100px;
+  color: var(--property-color);
+}
+
+.btn-email {
+  background-color: var(--property-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;  
+  border-radius: 5px;
+  padding: 10px 100px 10px 100px;
+  border: none;
+  cursor: pointer;
+  color: #f8f9fa;
+}
+.btn-email:hover {
+  background-color: var(--button-hover);
+}
+
+.resend-text {
+  margin-top: 20px;
+}
+
+.resend-text button {
+  color: #e74c3c;
+  border: none;
+  background-color: var(--base-variant);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.element-checkMail-rg {
+  margin-top: 20px;
+}
+
+.element-checkMail-rg button {
+  background-color: var(--secondary-text);
+  cursor: pointer;
+  color: var(--text-color);
+  border: none;
+}
