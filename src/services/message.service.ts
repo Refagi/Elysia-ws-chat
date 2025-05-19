@@ -64,6 +64,21 @@ export class MessageService {
   }
 
   async deleteMessage(messageId: string, senderId: string) {
+    const getMessage = await this.getMessageById(messageId);
+    if (!getMessage) throw new ApiError(httpStatus.NOT_FOUND, 'Message is not found!');
+    const currentProfilePic = getMessage.image;
+
+    // Jika ada URL gambar, hapus dari Cloudinary
+    if (currentProfilePic) {
+      // Ekstrak public_id dari URL
+      // Contoh URL: https://res.cloudinary.com/your_cloud_name/image/upload/v1234567890/public_id.jpg
+      const urlParts = currentProfilePic.split('/');
+      const publicIdWithExtension = urlParts[urlParts.length - 1];
+      const publicId = publicIdWithExtension.split('.')[0];
+
+      await cloudinary.uploader.destroy(publicId);
+      console.log(`Deleted image from Cloudinary: ${publicId}`);
+    }
     const deleteMessage = await db.delete(messages).where(eq(messages.id, messageId));
     if (!deleteMessage) throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to delete message!');
     return deleteMessage;
