@@ -20,7 +20,7 @@ export function CatchAllError<T extends { new (...args: any[]): {} }>(target: T)
           } catch (error) {
             console.error(`Error in ${methodName}:`, error);
             if (error instanceof ApiError) {
-              throw error; // Pertahankan ApiError asli
+              throw error;
             }
             throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, (error as Error).message || 'Internal Server Error');
           }

@@ -16,7 +16,6 @@ export class ErrorHandler {
   }
 
   errorConverter(error: any) {
-    // console.error('🔥 Original Error: ', error);
     if (!(error instanceof ApiError)) {
       if (error.response) {
         const message = error.response.data?.message || error.response.data;
@@ -55,7 +54,6 @@ export class ErrorHandler {
       // Menangani kolom yang wajib diisi (NOT NULL constraint)
       return new ApiError(httpStatus.BAD_REQUEST, 'Missing required field', false, err.stack);
     }
-    // Default error
     return new ApiError(httpStatus.INTERNAL_SERVER_ERROR, `Something went wrong: ${err.message}`, false, err.stack);
   };
 

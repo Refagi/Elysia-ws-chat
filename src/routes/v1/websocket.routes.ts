@@ -66,7 +66,7 @@ export const websocketRoutes = new Elysia()
           // Simpan pesan ke database
           const messageData = await MessageController.sendMessage({
             body: {
-              text: content, // Ubah content menjadi text sesuai dengan tipe SendMessage
+              text: content, 
               image: image || undefined,
               receiverId: receiverId,
             },
@@ -92,7 +92,7 @@ export const websocketRoutes = new Elysia()
             event: 'messageSent',
             data: savedMessage,
           }));
-        } else if (data.event === 'messageDeleted') { // Tambahkan handler untuk deleteMessage
+        } else if (data.event === 'messageDeleted') {
           const { messageId } = data.data;
           if (!messageId) {
             throw new ApiError(httpStatus.BAD_REQUEST, 'messageId is required');

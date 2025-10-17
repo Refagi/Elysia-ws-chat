@@ -15,14 +15,10 @@ export const app = new Elysia()
 .use(swaggerConfig)
 .use(router)
 
-// Add this to your Elysia app configuration
-// .use(staticPlugin())
-// .get('/auth', () => Bun.file('./public/auth.html'))
-// .get('/chat', () => Bun.file('./public/ws.html'))
 .use(
   staticPlugin({
-    assets: './public',        // ini pastikan sesuai
-    prefix: '/',               // akses langsung lewat root (/css, /js)
+    assets: './public',
+    prefix: '/',
   })
 )
 .get('/auth', () => Bun.file('./public/auth.html'))

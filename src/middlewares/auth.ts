@@ -42,7 +42,7 @@ export class AuthHandler {
       if (!getUser) {
         throw new ApiError(httpStatus.FORBIDDEN, `Forbidden`);
       }
-      request.user = getUser; // attach user to request
+      request.user = getUser;
       return getUser;
     } catch (error) {
       throw new ApiError(httpStatus.UNAUTHORIZED, 'Invalid token');
